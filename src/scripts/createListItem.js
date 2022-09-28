@@ -1,4 +1,4 @@
-const createLIstItem = (bookmark) => {
+const createListItem = (bookmark) => {
   const li = document.createElement('li');
   li.className = 'list-group-item d-flex';
 
@@ -16,7 +16,22 @@ const createLIstItem = (bookmark) => {
     window.open(bookmark.url, '_blank');
   };
 
+  const icons = document.createElement('div');
+  icons.className = 'ml-auto';
+
+  const fav = document.createElement('span');
+  const i = document.createElement('i');
+  i.className = `${bookmark.isFav ? 'fas' : 'far'} fa-heart`;
+  fav.appendChild(i);
+
+  //TODO: eventlistener incomplete
+
+  const remove = document.createElement('span');
+  remove.innerHTML = `<i class="fas fa-trash"></i>`;
+  remove.className = 'mx-3';
+
+  li.append(img, text, icons);
   return li;
 };
 
-export default createLIstItem;
+export default createListItem;
